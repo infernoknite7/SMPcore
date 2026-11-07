@@ -1,0 +1,32 @@
+# Lightweight rank system (LuckPerms-lite).
+# Use /rank set <player> <rank>. Weight is just for ordering ranks.
+# "inherits" pulls in permissions from other ranks. Prefix a permission with - to deny it.
+default-rank: member
+
+ranks:
+  member:
+    weight: 0
+    prefix: "&7"
+    permissions: []
+  vip:
+    weight: 10
+    prefix: "&6[VIP] &e"
+    inherits: [member]
+    permissions:
+      - smp.homes.unlimited
+  mod:
+    weight: 50
+    prefix: "&2[Mod] &a"
+    inherits: [vip]
+    permissions:
+      - smp.ban
+      - smp.mute
+      - smp.warn
+      - smp.vanish
+      - smp.vanish.see
+  admin:
+    weight: 100
+    prefix: "&c[Admin] &c"
+    inherits: [mod]
+    permissions:
+      - smp.*

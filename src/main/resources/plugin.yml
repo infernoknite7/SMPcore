@@ -1,0 +1,106 @@
+name: SMPCore
+version: 1.0.0
+main: com.smpcore.SMPCore
+api-version: "1.21"
+description: All-in-one SMP plugin (homes, TPA, bans, mutes, warnings, vanish, ranks, combat log, sleep).
+
+commands:
+  home:
+    description: Teleport to a home
+    usage: /home [name]
+  sethome:
+    description: Set a home
+    usage: /sethome [name]
+  delhome:
+    description: Delete a home
+    usage: /delhome <name>
+  homes:
+    description: List your homes
+    usage: /homes
+  tpa:
+    description: Ask to teleport to a player
+    usage: /tpa <player>
+  tpahere:
+    description: Ask a player to teleport to you
+    usage: /tpahere <player>
+  tpaccept:
+    description: Accept a teleport request
+    usage: /tpaccept
+  tpdeny:
+    description: Deny a teleport request
+    usage: /tpdeny
+  tpacancel:
+    description: Cancel your outgoing teleport request
+    usage: /tpacancel
+  ban:
+    description: Ban a player
+    usage: /ban <player> [duration] [reason]
+    permission: smp.ban
+  unban:
+    description: Unban a player
+    usage: /unban <player>
+    permission: smp.ban
+  mute:
+    description: Mute a player
+    usage: /mute <player> [duration] [reason]
+    permission: smp.mute
+  unmute:
+    description: Unmute a player
+    usage: /unmute <player>
+    permission: smp.mute
+  warn:
+    description: Warn a player (3 warnings = 1 day ban)
+    usage: /warn <player> [reason]
+    permission: smp.warn
+  warnings:
+    description: View a player's warnings
+    usage: /warnings <player>
+    permission: smp.warn
+  clearwarnings:
+    description: Clear a player's warnings
+    usage: /clearwarnings <player>
+    permission: smp.warn
+  vanish:
+    description: Toggle vanish
+    usage: /vanish
+    permission: smp.vanish
+    aliases: [v]
+  rank:
+    description: Manage player ranks
+    usage: /rank <set|get|list|reload>
+    permission: smp.rank
+  smpcore:
+    description: SMPCore admin command
+    usage: /smpcore reload
+    permission: smp.admin
+
+permissions:
+  smp.ban:
+    default: op
+  smp.mute:
+    default: op
+  smp.warn:
+    default: op
+  smp.vanish:
+    default: op
+  smp.vanish.see:
+    default: op
+  smp.rank:
+    default: op
+  smp.admin:
+    default: op
+  smp.homes.unlimited:
+    default: false
+  smp.combat.bypass:
+    default: false
+  smp.*:
+    default: false
+    children:
+      smp.ban: true
+      smp.mute: true
+      smp.warn: true
+      smp.vanish: true
+      smp.vanish.see: true
+      smp.rank: true
+      smp.admin: true
+      smp.homes.unlimited: true

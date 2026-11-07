@@ -1,0 +1,24 @@
+# ===== SMPCore config =====
+# Colors: legacy codes (&c, &l ...) and hex (&#RRGGBB) both work.
+
+homes:
+  max: 3                      # homes per player (smp.homes.unlimited bypasses)
+
+tpa:
+  timeout-seconds: 60
+
+combat:
+  seconds: 15                 # combat log timer
+  tag-on-mob-damage: false    # also tag when hit by mobs
+  blocked-commands: [home, tpa, tpahere, tpaccept, vanish, v, spawn, warp, back]
+
+warnings:
+  threshold: 3                # warnings before auto-ban
+  ban-duration: 1d            # s, m, h, d, w
+
+punishments:
+  broadcast: true
+  muted-blocked-commands: [msg, tell, w, whisper, r, reply, me]
+
+sleep:
+  one-player-skip: true       # one sleeping player skips the night
